@@ -1,0 +1,14 @@
+services:
+  demo_postgres:
+    container_name: demo_postgres
+    image: postgres:16-alpine
+    volumes:
+      - demo_pg_data:/var/lib/postgresql/data
+      - ./initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=refresh25
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+volumes:
+  demo_pg_data:
