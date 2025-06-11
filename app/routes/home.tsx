@@ -29,6 +29,7 @@ export async function action({ request }: Route.ActionArgs) {
   await db.insert(tasksTable).values({
     id: uuidv7(),
     name: taskName.trim(),
+    description: null,
   });
 
   return redirect("/");
@@ -70,9 +71,22 @@ export default function Home({ loaderData, actionData }: Route.ComponentProps) {
           result.map((task) => (
             <div
               key={task.id}
-              className="bg-blue-800 border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow"
             >
-              {task.name}
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  <h3 className="font-medium text-gray-900">{task.name}</h3>
+                  {task.description && (
+                    <p className="text-gray-600 text-sm mt-1">{task.description}</p>
+                  )}
+                </div>
+                <a
+                  href={`/edit/${task.id}`}
+                  className="ml-4 px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+                >
+                  Edit
+                </a>
+              </div>
             </div>
           ))
         )}
