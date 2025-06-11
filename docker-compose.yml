@@ -10,5 +10,7 @@ services:
       - POSTGRES_PASSWORD=refresh25
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres"]
+    ports:
+      - "5432:5432"
 volumes:
   demo_pg_data:
