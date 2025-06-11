@@ -80,12 +80,20 @@ export default function Home({ loaderData, actionData }: Route.ComponentProps) {
                     <p className="text-gray-600 text-sm mt-1">{task.description}</p>
                   )}
                 </div>
-                <a
-                  href={`/edit/${task.id}`}
-                  className="ml-4 px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-                >
-                  Edit
-                </a>
+                <div className="flex gap-2">
+                  <a
+                    href={`/edit/${task.id}`}
+                    className="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+                  >
+                    Edit
+                  </a>
+                  <a
+                    href={`/delete/${task.id}`}
+                    className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+                  >
+                    Delete
+                  </a>
+                </div>
               </div>
             </div>
           ))
