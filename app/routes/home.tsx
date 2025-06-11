@@ -71,13 +71,15 @@ export default function Home({ loaderData, actionData }: Route.ComponentProps) {
           result.map((task) => (
             <div
               key={task.id}
-              className="bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-gray-900 border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex justify-between items-start">
                 <div className="flex-1">
-                  <h3 className="font-medium text-gray-900">{task.name}</h3>
+                  <h3 className="font-medium text-white">{task.name}</h3>
                   {task.description && (
-                    <p className="text-gray-600 text-sm mt-1">{task.description}</p>
+                    <p className="text-white text-sm mt-1">
+                      {task.description}
+                    </p>
                   )}
                 </div>
                 <div className="flex gap-2">
