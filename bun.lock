@@ -6,6 +6,7 @@
       "dependencies": {
         "@react-router/node": "^7.5.3",
         "@react-router/serve": "^7.5.3",
+        "@refreshjs/puidv7": "^1.0.7",
         "drizzle-orm": "^0.44.2",
         "isbot": "^5.1.27",
         "pg": "^8.16.0",
@@ -177,6 +178,8 @@
 
     "@react-router/serve": ["@react-router/serve@7.6.2", "", { "dependencies": { "@react-router/express": "7.6.2", "@react-router/node": "7.6.2", "compression": "^1.7.4", "express": "^4.19.2", "get-port": "5.1.1", "morgan": "^1.10.0", "source-map-support": "^0.5.21" }, "peerDependencies": { "react-router": "7.6.2" }, "bin": { "react-router-serve": "bin.js" } }, "sha512-VTdvB8kdZEtYeQML9TFJiIZnPefv94LfmLx5qQ0SJSesel/hQolnfpWEkLJ9WtBO+/10CulAvg6y5UwiceUFTQ=="],
 
+    "@refreshjs/puidv7": ["@refreshjs/puidv7@1.0.7", "", { "dependencies": { "@scure/base": "^1.2.4", "uuidv7": "^1.0.2", "zod": "^3.24.2" }, "peerDependencies": { "drizzle-orm": "^0.36.1", "typescript": "^5.3.2" } }, "sha512-usXw83YHuey07R+p9i8wjfuxNESOKWUeAQsyHUImpSn+D94bfinmSDKWq1Iym3hMiVLmCVPBT7fef0puJz884Q=="],
+
     "@rollup/rollup-android-arm-eabi": ["@rollup/rollup-android-arm-eabi@4.43.0", "", { "os": "android", "cpu": "arm" }, "sha512-Krjy9awJl6rKbruhQDgivNbD1WuLb8xAclM4IR4cN5pHGAs2oIMMQJEiC3IC/9TZJ+QZkmZhlMO/6MBGxPidpw=="],
 
     "@rollup/rollup-android-arm64": ["@rollup/rollup-android-arm64@4.43.0", "", { "os": "android", "cpu": "arm64" }, "sha512-ss4YJwRt5I63454Rpj+mXCXicakdFmKnUNxr1dLK+5rv5FJgAxnN7s31a5VchRYxCFWdmnDWKd0wbAdTr0J5EA=="],
@@ -216,6 +219,8 @@
     "@rollup/rollup-win32-ia32-msvc": ["@rollup/rollup-win32-ia32-msvc@4.43.0", "", { "os": "win32", "cpu": "ia32" }, "sha512-fYCTEyzf8d+7diCw8b+asvWDCLMjsCEA8alvtAutqJOJp/wL5hs1rWSqJ1vkjgW0L2NB4bsYJrpKkiIPRR9dvw=="],
 
     "@rollup/rollup-win32-x64-msvc": ["@rollup/rollup-win32-x64-msvc@4.43.0", "", { "os": "win32", "cpu": "x64" }, "sha512-SnGhLiE5rlK0ofq8kzuDkM0g7FN1s5VYY+YSMTibP7CqShxCQvqtNxTARS4xX4PFJfHjG0ZQYX9iGzI3FQh5Aw=="],
+
+    "@scure/base": ["@scure/base@1.2.6", "", {}, "sha512-g/nm5FgUa//MCj1gV09zTJTaM6KBAHqLN907YVQqf7zC49+DcO4B1so4ZX07Ef10Twr6nuqYEH9GEggFXA4Fmg=="],
 
     "@tailwindcss/node": ["@tailwindcss/node@4.1.8", "", { "dependencies": { "@ampproject/remapping": "^2.3.0", "enhanced-resolve": "^5.18.1", "jiti": "^2.4.2", "lightningcss": "1.30.1", "magic-string": "^0.30.17", "source-map-js": "^1.2.1", "tailwindcss": "4.1.8" } }, "sha512-OWwBsbC9BFAJelmnNcrKuf+bka2ZxCE2A4Ft53Tkg4uoiE67r/PMEYwCsourC26E+kmxfwE0hVzMdxqeW+xu7Q=="],
 
@@ -704,6 +709,8 @@
     "xtend": ["xtend@4.0.2", "", {}, "sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ=="],
 
     "yallist": ["yallist@5.0.0", "", {}, "sha512-YgvUTfwqyc7UXVMrB+SImsVYSmTS8X/tSrtdNZMImM+n7+QTriRXyXim0mBrTXNeqzVF0KWGgHPeiyViFFrNDw=="],
+
+    "zod": ["zod@3.25.61", "", {}, "sha512-fzfJgUw78LTNnHujj9re1Ov/JJQkRZZGDMcYqSx7Hp4rPOkKywaFHq0S6GoHeXs0wGNE/sIOutkXgnwzrVOGCQ=="],
 
     "@babel/core/semver": ["semver@6.3.1", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA=="],
 

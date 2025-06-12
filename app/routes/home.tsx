@@ -1,7 +1,7 @@
 import type { Route } from "./+types/home";
 import { drizzle } from "drizzle-orm/postgres-js";
 import { tasksTable } from "~/db/schema";
-import { uuidv7 } from "uuidv7";
+import { newId } from "@refreshjs/puidv7";
 import { Form, redirect } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
@@ -27,7 +27,7 @@ export async function action({ request }: Route.ActionArgs) {
 
   const db = drizzle("postgres://postgres:refresh25@127.0.0.1:5432/demo");
   await db.insert(tasksTable).values({
-    id: uuidv7(),
+    id: newId("tsk"),
     name: taskName.trim(),
     description: null,
   });
