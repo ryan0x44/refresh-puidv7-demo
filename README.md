@@ -1,87 +1,56 @@
-# Welcome to React Router!
+# Refresh puidv7 demo
 
-A modern, production-ready template for building full-stack React applications using React Router.
+This repository contains a demo of the [Refresh](https://refreshjs.org) [puidv7](https://refreshjs.org/puidv7) library.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+To learn about puidv7 visit <https://refreshjs.org/puidv7> or <https://github.com/refreshjs/puidv7>.
 
-## Features
+If you step through the commit history you'll see how the app was built.
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## Tech Stack
 
-## Getting Started
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [React Router v7 framework](https://reactrouter.com/start/framework/installation)
+- [Vite](https://vitejs.dev/)
+- [Bun](https://bun.sh/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Drizzle ORM](https://orm.drizzle.team/)
+- [Postgres.js](https://github.com/porsager/postgres)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
-### Installation
+## puidv7 in action
 
-Install the dependencies:
+The base of the repo is a simple TODO app.
 
-```bash
-npm install
-```
+If you view or edit a task, you'll see the ID in the URL.
 
-### Development
+Before adding puidv7, it is a standard UUIDv7 - revert the last commit to see it in action. The neat thing about this demo is you can jump between puidv7 and UUIDv7 implementations without changing any of the underlying data in the database, because using puidv7 with our Drizzle helper means it's always UUIDv7 in the DB
 
-Start the development server with HMR:
+## Changes required to go from UUIDv7 to puidv7
 
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
+### install new dependencies
 
 ```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+bun install @refreshjs/puidv7
 ```
 
-## Styling
+### edit: aap/db/schema.ts
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+```
+-  import { text, uuid, pgTable } from "drizzle-orm/pg-core";
++  import { text, pgTable } from "drizzle-orm/pg-core";
++  import { puidv7drizzle } from "@refreshjs/puidv7/drizzle_helpers";
+```
 
----
+### edit: app/routes/home.tsx
 
-Built with ❤️ using React Router.
+```
+-  import { uuidv7 } from "uuidv7";
++  import { newId } from "@refreshjs/puidv7";
+```
+
+```
+-  id: uuid().primaryKey(),
++  id: puidv7drizzle("tsk")("id").primaryKey(),
+```
